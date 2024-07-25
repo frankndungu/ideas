@@ -2,26 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Idea;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index() {
-        $users = [
-            [
-                'name' => 'Tamara',
-                'age' => 24,
-            ],
-            [
-                'name' => 'Frank',
-                'age' => 24,
-            ],
-        ];
-
+    public function index()
+    {
         return view(
             "dashboard",
             [
-                'users' => $users
+                'ideas' => Idea::orderBy('created_at', 'desc')->get()
             ]
         );
     }
