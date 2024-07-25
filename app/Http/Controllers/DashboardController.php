@@ -9,11 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $idea = new Idea();
-        $idea->content = "hello frank";
-        $idea->likes = 0;
-        $idea->save();
-
         return view(
             "dashboard",
             [
